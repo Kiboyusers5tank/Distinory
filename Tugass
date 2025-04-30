@@ -1,0 +1,52 @@
+kamus = {
+    "pisang": "buah berwarna kuning",
+    "apel": "buah berwarna merah atau hijau",
+    "jeruk": "buah berwarna oranye dan rasanya asam manis"
+}
+
+def tampilkan_menu():
+    print("\n--- Program Kamus Sederhana ---")
+    print("1. Cari arti kata")
+    print("2. Tambah kata baru")
+    print("3. Tampilkan semua kata")
+    print("4. Keluar")
+
+def cari_kata():
+    kata = input("Masukkan kata yang ingin dicari artinya: ")
+    if kata in kamus:
+        print(f"Arti dari '{kata}' adalah: {kamus[kata]}")
+    else:
+        print(f"Maaf, kata '{kata}' tidak ditemukan dalam kamus.")
+
+def tambah_kata():
+    kata_baru = input("Masukkan kata baru: ")
+    if kata_baru in kamus:
+        print(f"Kata '{kata_baru}' sudah ada di dalam kamus.")
+    else:
+        arti = input("Masukkan arti dari kata tersebut: ")
+        kamus[kata_baru] = arti
+        print(f"Kata '{kata_baru}' berhasil ditambahkan ke kamus.")
+
+def tampilkan_semua():
+    if not kamus:
+        print("Kamus masih kosong.")
+    else:
+        print("\nDaftar kata dalam kamus:")
+        for kata, arti in kamus.items():
+            print(f"- {kata} : {arti}")
+
+while True:
+    tampilkan_menu()
+    pilihan = input("Pilih menu (1/2/3/4): ")
+
+    if pilihan == "1":
+        cari_kata()
+    elif pilihan == "2":
+        tambah_kata()
+    elif pilihan == "3":
+        tampilkan_semua()
+    elif pilihan == "4":
+        print("Terima kasih telah menggunakan kamus!")
+        break
+    else:
+        print("Pilihan tidak valid, silakan coba lagi.")
